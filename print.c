@@ -6,7 +6,7 @@
 /*   By: jgiancol <jgiancol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:10:31 by jgiancol          #+#    #+#             */
-/*   Updated: 2025/08/13 19:36:07 by jgiancol         ###   ########.fr       */
+/*   Updated: 2025/08/14 02:21:17 by jgiancol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void ft_putstr_and_count(char *s, int len, t_format_info *info)
 	write(1, s, len);
 	info->total_len_printed += len;
 }
-
+/*
 static int ft_nbr_len(long long n, int base)
 {
 	int len = 0;
@@ -77,7 +77,7 @@ static int ft_unbr_len(unsigned long long n, int base)
 	}
 	return len;
 }
-
+*/
 static char *ft_lltoa_base(long long n, int base, int is_upper_hex)
 {
 	char *res;
@@ -385,7 +385,6 @@ int ft_printf (const char *format, ...)
 			format++;
 			ft_init_format_info(&info);
 			format = ft_parse_format_specifier(&info, format);
-
 			if (info.type == 'c')
 				ft_handle_char(arg, &info);
 			else if (info.type == 's')
@@ -414,7 +413,6 @@ int ft_printf (const char *format, ...)
 			format++;
 		}
 	}
-
 	va_end(arg);
 	return (info.total_len_printed);
 }
@@ -435,6 +433,7 @@ int main()
 	ft_printf("ft_printf retornou: %d\n", res_ft);
 	printf("printf retornou: %d\n", res_std);
 
+	/*
 	printf("\n--- Testes de Flags e Largura ---\n");
 	res_ft = ft_printf("Int + Space: % d, Int + Plus: %+d, Int Capped: %.2d, String Prec: %.3s, Zero Pad: %05d, Left Align: %-5d\n",
 						123, 123, 5, "HelloWorld", 42, 123);
@@ -482,6 +481,6 @@ int main()
 	res_std = printf("Invalido: %k%y\n");
 	ft_printf("ft_printf retornou: %d\n", res_ft);
 	printf("printf retornou: %d\n", res_std);
-
+		*/
 	return 0;
 }
